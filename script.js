@@ -4,8 +4,8 @@ const rumahMakan = {
   kategori: ["tradisional", "rempah", "gurih", "lezar"],
   menuPembuka: ["es buah", "es krim", "soto"],
   menuUtama: ["Padang", "gulai", "rendang"],
-  order: function (starterIndex, mainIndex) {
-    return [this.menuPembuka[starterIndex], this.menuUtama[mainIndex]];
+  order: function (pembukaIndex, utamaIndex) {
+    return [this.menuPembuka[pembukaIndex], this.menuUtama[utamaIndex]];
   },
 };
 
