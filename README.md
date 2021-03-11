@@ -42,3 +42,5 @@ Membuat array baru dengan 2 variable di dalamnya
 ```javascript
 [main, secondary] = [secondary, main];
 ```
+
+### Membuat function untuk mengurai array yang ada di dalam objek

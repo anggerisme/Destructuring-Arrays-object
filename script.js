@@ -4,6 +4,9 @@ const rumahMakan = {
   kategori: ["tradisional", "rempah", "gurih", "lezar"],
   menuPembuka: ["es buah", "es krim", "soto"],
   menuUtama: ["Padang", "gulai", "rendang"],
+  order: function (starterIndex, mainIndex) {
+    return [this.menuPembuka[starterIndex], this.menuUtama[mainIndex]];
+  },
 };
 
 const arr = [2, 3, 4];
@@ -30,3 +33,8 @@ console.log(main, secondary);
 
 [main, secondary] = [secondary, main];
 console.log(main, secondary);
+
+// Function
+// Membuat method/function di dalam objek yang mengurai data yang ada di dalam array objek restaurant
+
+console.log(rumahMakan.order(2, 1));
