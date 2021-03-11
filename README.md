@@ -18,6 +18,8 @@ console.log(x, y, z); // 2, 3, 4
 const temp = main;
 ```
 > main = secondary; // Main yang sudah kita definisikan kita ganti lagi nilainya dengan nilai milik secondary
-secondary = temp; // Kemudian nilai secondary yang sudah ditentukan diawal kita isi lagi dengan nilai dari variable temp yaitu main.
-// Main sekarang menjadi 3 dan secondary menjadi 1 karena main pada awalnya 1 sebelum diisi
+```javascript
+secondary = temp
+```
+> Kemudian nilai secondary yang sudah ditentukan diawal kita isi lagi dengan nilai dari variable temp yaitu main. Main sekarang menjadi 3 dan secondary menjadi 1 karena main pada awalnya 1 sebelum diisi
 console.log(main, secondary);
