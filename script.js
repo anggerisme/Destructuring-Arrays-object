@@ -37,4 +37,14 @@ console.log(main, secondary);
 // Function
 // Membuat method/function di dalam objek yang mengurai data yang ada di dalam array objek restaurant
 
-console.log(rumahMakan.order(2, 1));
+const [starter, main1] = rumahMakan.order(2, 1);
+console.log(starter, main1);
+
+// ------------ Nested Destructuring ----------
+const nested = [2, 4, [6, 8]];
+const [i, , j] = nested; // i dan j merupakan indeks/perwakilan order
+console.log([i, j]); // Nilai dalam nested berjumlah 3 data yaitu 2, 4 dan [6,8]
+
+// ----------- Default Value ---------
+const [p, q, r] = [8, 9];
+console.log([p, q, r]); // Nilai r adalah undefined karena data pada array hanya ada 3 value

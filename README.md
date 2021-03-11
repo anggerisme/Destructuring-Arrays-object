@@ -75,4 +75,43 @@ order: function (pembukaIndex, UtamaIndex) {
   }
 ```
 
-> Function diatas mencoba mengurai/mengambil data dari property `menuPembuka` dan `menuUtama` dengan menggunakan keyword `this` dan menggunakan [index]
+> Function diatas mencoba mengurai/mengambil data dari property `menuPembuka` dan `menuUtama` dengan menggunakan keyword `this` dan menggunakan [index] yang digunakan untuk melacak urutan dari array mereka.
+
+Kita tampilkan hasilnya menggunakan console.log yang nilai dari function tadi kita simpan dalam variable const `[starter, main1]`
+
+```javascript
+const [starter, main1] = rumahMakan.order(2, 1);
+console.log(starter, main1);
+```
+
+### Nested Destructuring
+
+```javascript
+const nested = [2, 4, [6, 8]];
+const [i, , j] = nested;
+console.log([i, j]); //
+```
+
+> `i` dan `j` merupakan indeks/perwakilan dari urutan nested
+
+```javascript
+const nested = [2, 4, [6, 8]];
+```
+
+> // Nilai dalam nested berjumlah 3 data yaitu 2, 4 dan [6,8]
+
+### Default value dari sebuah arrays
+
+```javascript
+const [p, q, r] = [8, 9];
+console.log([p, q, r]);
+```
+
+> Nilai r adalah undefined karena data pada array hanya ada 3 value
+> tapi kita masih bisa mengatur nilai default dari sebuah arrays jika nilai yang kita urai pada sebuah arrays ternyata tidak tersedia
+
+```javascript
+const [p = 1, q = 1, r = 1] = [8, 9]; // Maka r sama dengan 1
+```
+
+>
