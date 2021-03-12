@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
 const rumahMakan = {
-  name: "Rumah makan berkah",
-  lokasi: "Jalan merpati blok m",
-  kategori: ["tradisional", "rempah", "gurih", "lezar"],
-  menuPembuka: ["es buah", "es krim", "soto"],
-  menuUtama: ["Padang", "gulai", "rendang"],
+  name: 'Rumah makan berkah',
+  lokasi: 'Jalan merpati blok m',
+  kategori: ['tradisional', 'rempah', 'gurih', 'lezar'],
+  menuPembuka: ['es buah', 'es krim', 'soto'],
+  menuUtama: ['Padang', 'gulai', 'rendang'],
   order: function (pembukaIndex, utamaIndex) {
     return [this.menuPembuka[pembukaIndex], this.menuUtama[utamaIndex]];
   },
@@ -51,7 +51,7 @@ console.log(main, secondary);
 console.log(main, secondary);
 
 // Function
-// Membuat method/function di dalam objek yang mengurai data yang ada di dalam array objek restaurant
+/*Membuat method/function di dalam objek yang mengurai data yang ada di dalam array objek restaurant*/
 
 const [starter, main1] = rumahMakan.order(2, 1);
 console.log(starter, main1);
@@ -66,17 +66,26 @@ const [p, q, r] = [8, 9];
 console.log([p, q, r]); // Nilai r adalah undefined karena data pada array hanya ada 3 value
 
 // ----------- Destructuring Object ---------
-// Dalam membuat objek sama seperti array tapi menggunakan kurung kurawa (karena objek), dan nama variable yang ada di dalam kurung tersebut (sebagai destructor) harus memiliki nama yang sama persis dengan apa yang ada di dalam objek yang ada disampingnya
+/*Dalam membuat objek sama seperti array tapi menggunakan kurung kurawa (karena objek), dan nama variable yang ada di dalam kurung tersebut (sebagai destructor) harus memiliki nama yang sama persis dengan apa yang ada di dalam objek yang ada disampingnya*/
 const { name, jamBuka, kategori } = rumahMakan;
 console.log(name, jamBuka, kategori);
 
 // ---- Jika kita ingin mengubah nama variablenya (karena tadi menggunakan nama property asli dari objeknya) -----
-// Kita bisa mengubah namannya tetapi tetap harus merujuk ke nama property objek yang akan kita ambil datanya
+/*Kita bisa mengubah namannya tetapi tetap harus merujuk ke nama property objek yang akan kita ambil datanya*/
 const { name: nama, jamBuka: jamBukanya, kategori: tags } = rumahMakan;
-// Jadi yang kita hanya menambahkan nama baru tetapi dengan tetap merujuk ke nama property dari objek tersebut.
+/*Jadi yang kita hanya menambahkan nama baru tetapi dengan tetap merujuk ke nama property dari objek tersebut.*/
 console.log(nama, jamBukanya, tags);
 
 // ----- Menambahkan nilai default -----
-// Dalam beberapa kasus jika ternyata variable yang kita tambahkan di destructor tidak terdapat di dalam objek maka secara default nilainya undefined, maka dalam hal ini kita tambahkan nilai yang kita sendiri tentukan
+/* Dalam beberapa kasus jika ternyata variable yang kita tambahkan di destructor tidak terdapat di dalam objek maka secara default nilainya undefined, maka dalam hal ini kita tambahkan nilai yang kita sendiri tentukan*/
 const { menu = [], menuPembuka: starters = [] } = rumahMakan;
 console.log(menu, starters);
+
+// ----- Mutating Objects -----
+let d = 4;
+let e = 5;
+const obj = { d: 1, e: 2, f: 3 };
+/* Kita tidak bisa menggunakan let atau const karena 'd' dan 'e' sebelumnya sudah di deklarasikan di atas */
+let { d, e } = obj;
+/* Inikan polanya/formasinya sama dengan ini */
+// const { name, jamBuka, kategori } = rumahMakan;
