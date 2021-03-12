@@ -1,3 +1,5 @@
+"use strict";
+
 const rumahMakan = {
   name: "Rumah makan berkah",
   lokasi: "Jalan merpati blok m",
@@ -48,3 +50,6 @@ console.log([i, j]); // Nilai dalam nested berjumlah 3 data yaitu 2, 4 dan [6,8]
 // ----------- Default Value ---------
 const [p, q, r] = [8, 9];
 console.log([p, q, r]); // Nilai r adalah undefined karena data pada array hanya ada 3 value
+
+// Destructuring Object
+const { name, jamBuka, kategori } = rumahMakan;
