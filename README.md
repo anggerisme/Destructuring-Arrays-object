@@ -1,6 +1,7 @@
 ## Destructuring-Arrays
 
-Seri belajar data struktur javascript - part 1
+> Destructuring arryas menggunakan kurung besar []
+> Seri belajar data struktur javascript - part 1
 
 Jika kita ingin membaca data dari arrays kita harus menggunakan index dari arrays untuk mengambil data
 
@@ -116,6 +117,8 @@ const [p = 1, q = 1, r = 1] = [8, 9]; // Maka r sama dengan 1
 
 ## Destructuring Objects
 
+> Destructuring objek menggunakan **_kurung kurawa_** {}
+
 Dalam membuat objek sama seperti array tapi menggunakan kurung kurawa (karena objek), dan nama variable yang ada di dalam kurung tersebut (sebagai destructor) harus memiliki nama yang sama persis dengan properti yang ada di dalam objek yang ada disampingnya
 
 ```javascript
@@ -156,13 +159,13 @@ Kita ingin mengisi lagi nilai dari `d` dan `e`
 ```javascript
 let d = 4;
 let e = 5;
-const obj = { d: 1, e: 2, f: 3 };
+const obj = { d: 1, e: 2, f: 3 }; // Diisi dengan nilai d=1 dan e=2
 ```
 
-> Kita tidak bisa menggunakan let atau const karena 'd' dan 'e' sebelumnya sudah di deklarasikan di atas
+> Kita tidak bisa menggunakan `let` atau `const` karena `d` dan `e` sebelumnya sudah di deklarasikan di atas
 
 ```javascript
-let { d, e } = obj;
+let { d, e } = obj; // redeclaration
 ```
 
 > Inikan polanya/formasinya sama dengan ini
@@ -171,15 +174,55 @@ let { d, e } = obj;
 const { name, jamBuka, kategori } = rumahMakan;
 ```
 
-Kita juga tidak bisa menggunakan kurung kurawa karena javascript menganggapnya block kode, jadi kita tidak mengisi nilai apapun ke dalamnya
+Kita juga tidak bisa menggunakan kurung kurawa karena javascript menganggapnya _block kode_, jadi kita tidak bisa mengisi nilai apapun ke dalamnya
 
 ```javascript
-{a,b} = obj
+{a,b} = obj // expected expression, got '=' (Mozilla)
 ```
 
 Jadi solusinya kita wrap/bungkus semua ini ke dalam kurung balok (_parenthesis_)
 
 ```javascript
 [({ d, e } = obj)];
-console.log(d, e);
+console.log(d, e); // 1,2
+```
+
+### Nested Objects
+
+Mengurai nilai/property yang ada di objek (yang objek ini bersarang di dalam objek lainya)
+
+```javascript
+const { jum } = jamBuka;
+```
+
+Kesamaan Pola/formasi
+
+```javascript
+const { nama, jamBuka, kategori } = rumahMakan;
+```
+
+Kenapa kita bisa menggunakan jamBuka secara langsung tanpa menggunakan parentnya? (rumahMakan), karena nama variable jamBuka sudah kita definisikan sebelumnya. Kalau belum didefinisikan ya harus menyertakan parentnya `rumahMakan.jamBuka`
+
+```javascript
+console.log(jum); // Object {open :11, close :23}
+```
+
+> Nilai `jum` ini merupakan nama property yang ada di objek `jamBuka`
+
+### Mengurai lebih dalam lagi property yang ada di dalam objek `jum`
+
+```javascript
+const {
+  jum: { open, close },
+} = jamBuka;
+console.log(open, close); // 11, 23 -> Hanya menampilkan nilainya saja tanpa keterangan tambahan
+```
+
+### Mengganti variable dengan nama baru yang merujuk ke nama property sebelumnya
+
+```javascript
+const {
+  jum: { open: buka, close: tutup },
+} = jamBuka;
+console.log(buka, tutup);
 ```
