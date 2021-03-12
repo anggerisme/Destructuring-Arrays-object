@@ -1,7 +1,8 @@
 ## Destructuring-Arrays
 
-Seri belajar data struktur javascript - part 1
-Apa itu _destructuring assignment_? adalah ekspresi pada javascript yang memungkinkan untuk mengurai/mengambil nilai dari sebuah array, method ataupun object menjadi variable lain yang berbeda. artinya kita dapat menamai ulang variable/property dari sebuah objek selama nama itu masih merujuk ke nama property aslinya.
+Apa itu _destructuring assignment_? adalah ekspresi pada javascript yang memungkinkan untuk mengurai/mengambil nilai dari sebuah array, method ataupun object menjadi variable lain yang berbeda. Artinya kita dapat menamai ulang variable/property dari sebuah objek selama nama itu masih merujuk ke nama property aslinya.
+
+Berikut hal yang bisa kita lakukan dengan _destructuring assignment_
 
 ### Cara Manual
 
@@ -16,7 +17,7 @@ const c = arr[2];
 
 ### Cara yang lebih powerfull
 
-Caranya hampir mirip dengan yang diatas, tetapi _destructor_ berada di sebelah kiri dari arrays/objek yang akan diambil datanya
+Caranya hampir mirip dengan yang diatas, tetapi _destructor_ berada di sebelah kiri dari arrays/objek yang akan diambil datanya. Untuk penulisanya bisa langsung dimasukkan sekaligus dalam satu kurung besar (_parenthesis_) tanpa harus di tulis satu satu
 
 ```javascript
 const arr = [1, 2, 3];
@@ -26,28 +27,66 @@ console.log(a, b, c); // 1, 2, 3
 
 > Hasilnya akan sama dengan cara yang manual walaupun hanya beberapa baris kode saja. `[a,b,c]` merupakan destructor/pemecah dari `array` [1,2,3]
 
-> Penulisan untuk melakukan proses _Destructuring arryas_ menggunakan kurung besar []
+> Penulisan syntax untuk melakukan proses _Destructuring arryas_ **menggunakan kurung besar []**
 
-### Switching variable manual
+### Contoh Kasus
 
-```javascript
-const temp = main;
-```
-
-> Kita definisikan temp pertama kali dengan nilai yang sudah dipunyai main sebelumnya
+Kita coba gunakan contoh rumah makan sebagai objek kita
 
 ```javascript
-main = secondary;
+const rumahMakan = {
+  nama: 'Rumah makan berkah',
+  lokasi: 'Jalan merpati blok m',
+  kategori: ['tradisional', 'murah', 'warteg'],
+  minuman: ['es teh', 'es jeruk', 'kopi'],
+  makanan: ['soto', 'gulai ikan', 'rendang'],
+};
 ```
 
-> Main yang sudah kita definisikan kita ganti lagi nilainya dengan nilai milik secondary
+Misalkan kita ingin mengetahui makanan apa saja yang ada di rumah makan berkah diatas
+
+#### Cara manual
+
+Kita anggap variable `a` mewakili nama daftar makanan untuk mempersingkat kata
 
 ```javascript
-secondary = temp;
+let a = rumahMakan.makanan;
+console.log(a[0], a[1], a[2]); // soto, gulai ikan, rendang
 ```
 
-> Kemudian nilai secondary yang sudah ditentukan diawal kita isi lagi dengan nilai dari variable temp yaitu main. Main sekarang menjadi 3 dan secondary menjadi 1 karena main pada awalnya 1 sebelum diisi
-> console.log(main, secondary);
+> Kita mengurai data yang ada pada `array` makanan dengan indeks/urutan yang kita 'wakilkan' dengan variable `a`. (a adalah daftar makanan)
+
+#### Menggunakan destructuring array
+
+```javascript
+let [a, b, c] = rumahMakan.makanan;
+console.log(a, b, c);
+```
+
+> Penulisanya hampir sama saja, hanya saja kita sudah tidak memerlukan index untuk mengambil datanya karena setiap urutan sudah diwakili oleh variable-variable yang sudah kita buat yaitu `a`,`b` dan `c`
+
+### Cara Manual
+
+Berikut jika kita ingin mengubah nilai dari suatu variable secara manual. Dengan tetap menggunakan contoh yang telah kita buat diatas
+
+```javascript
+const temp = a; // temp : temporary = nilai sementara. temp = soto
+```
+
+> Kita definisikan `temp` pertama kali dengan nilai yang sudah dipunyai `a` sebelumnya yaitu soto
+
+```javascript
+a = b; // soto kita ganti dengan gulai ikan
+```
+
+> `a` yang sudah kita definisikan soto kita ganti lagi nilainya dengan nilai milik b yaitu gulai ikan
+
+```javascript
+b = temp; // gulai ikan kita ganti dengan soto
+```
+
+> Kemudian nilai `b` yang sudah ditentukan diawal kita isi lagi dengan nilai dari variable `temp` yaitu `a` (`soto` sebelum diganti dengan `gulai ikan`). `a` sekarang menjadi `gulai ikan` dan `b` menjadi `soto`. karena `a` pada awalnya adalah `soto` jadi `temp` lah yang nilainya tetap dia tidak berubah sama sekali, Jadi `b` otomatis terisi dengan soto. Lanjut ya :)
+> console.log(main, secondary)
 
 ### Switching using destructuring
 
