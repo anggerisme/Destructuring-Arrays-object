@@ -1,4 +1,4 @@
-# Destructuring-Arrays
+## Destructuring-Arrays
 
 Seri belajar data struktur javascript - part 1
 
@@ -114,7 +114,7 @@ console.log([p, q, r]);
 const [p = 1, q = 1, r = 1] = [8, 9]; // Maka r sama dengan 1
 ```
 
-### Destructuring Objects
+## Destructuring Objects
 
 Dalam membuat objek sama seperti array tapi menggunakan kurung kurawa (karena objek), dan nama variable yang ada di dalam kurung tersebut (sebagai destructor) harus memiliki nama yang sama persis dengan properti yang ada di dalam objek yang ada disampingnya
 
@@ -140,7 +140,7 @@ const { name: nama, jamBuka: jamBukanya, kategori: tags } = rumahMakan;
 > console.log(nama, jamBukanya, tags); // Hasil tetap sama
 ```
 
-### ----- Menambahkan nilai default -----
+### Menambahkan nilai default
 
 Dalam beberapa kasus jika ternyata variable yang kita tambahkan di destructor tidak terdapat di dalam objek maka secara default nilainya undefined, maka dalam hal ini kita tambahkan nilai yang kita sendiri tentukan
 
