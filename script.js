@@ -9,6 +9,20 @@ const rumahMakan = {
   order: function (pembukaIndex, utamaIndex) {
     return [this.menuPembuka[pembukaIndex], this.menuUtama[utamaIndex]];
   },
+  jamBuka: {
+    kam: {
+      open: 12,
+      close: 22,
+    },
+    jum: {
+      open: 11,
+      close: 23,
+    },
+    sab: {
+      open: 0,
+      close: 24,
+    },
+  },
 };
 
 const arr = [2, 3, 4];
@@ -52,4 +66,6 @@ const [p, q, r] = [8, 9];
 console.log([p, q, r]); // Nilai r adalah undefined karena data pada array hanya ada 3 value
 
 // Destructuring Object
+// Dalam membuat objek sama seperti array tapi menggunakan kurung kurawa (karena objek), dan nama variable yang ada di dalam kurung tersebut (sebagai destructor) harus memiliki nama yang sama persis dengan apa yang ada di dalam objek yang ada disampingnya
 const { name, jamBuka, kategori } = rumahMakan;
+console.log(name, jamBuka, kategori);

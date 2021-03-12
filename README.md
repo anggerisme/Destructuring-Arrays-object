@@ -114,4 +114,13 @@ console.log([p, q, r]);
 const [p = 1, q = 1, r = 1] = [8, 9]; // Maka r sama dengan 1
 ```
 
->
+### Destructuring Objects
+
+Dalam membuat objek sama seperti array tapi menggunakan kurung kurawa (karena objek), dan nama variable yang ada di dalam kurung tersebut (sebagai destructor) harus memiliki nama yang sama persis dengan apa yang ada di dalam objek yang ada disampingnya
+
+```javascript
+const { name, jamBuka, kategori } = rumahMakan;
+console.log(name, jamBuka, kategori);
+```
+
+> Hasilnya secara berturut turut : Rumah makan berkah, Object { kam: {…}, jum: {…}, sab: {…} }, Array(4) [ "tradisional", "rempah", "gurih", "lezar" ]
