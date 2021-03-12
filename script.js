@@ -23,7 +23,35 @@ const rumahMakan = {
       close: 24,
     },
   },
+  // Parameternya diisi dengan property yang dipakai untuk menerima masukan/argumen dan mengembalikan nilainya
+  // Ingar! harus menggunakan kurung kurawa untuk mengurai objek
+  // Nilai default selalu menggunakan sama dengan untuk pengisian
+  pesanan: function ({
+    pembukaIndex = 1,
+    utamaIndex = 0,
+    alamat,
+    pukul = '20:00',
+  }) {
+    console.log(
+      `Pesanan diterima! ${this.menuPembuka[pembukaIndex]} dan ${this.menuUtama[utamaIndex]} siap diantarkan ke alamat ${alamat} pukul ${pukul}`
+    );
+  },
 };
+
+rumahMakan.pesanan({
+  pembukaIndex: 0,
+  utamaIndex: 1,
+  alamat: 'Jalan merpati, 30',
+  // pukul : karena pukul tidak kita definisikan maka javascript akan mengambil nilai default yang kita tetapkan diatas
+});
+
+// Membuat function yang dapat menerima banyak argumen dari berbagai objek selama memiliki parameter yang sama
+rumahMakan.pesanan({
+  pukul: '22:30',
+  alamat: 'Jalan merbabu, 21',
+  pembukaIndex: 2,
+  utamaIndex: 2,
+});
 
 const arr = [2, 3, 4];
 const a = arr[0];

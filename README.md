@@ -201,7 +201,7 @@ Kesamaan Pola/formasi
 const { nama, jamBuka, kategori } = rumahMakan;
 ```
 
-Kenapa kita bisa menggunakan jamBuka secara langsung tanpa menggunakan parentnya? (rumahMakan), karena nama variable jamBuka sudah kita definisikan sebelumnya. Kalau belum didefinisikan ya harus menyertakan parentnya `rumahMakan.jamBuka`
+Kenapa kita bisa menggunakan `jamBuka` secara langsung tanpa menggunakan parentnya? (`rumahMakan`), karena nama variable `jamBuka` sudah kita definisikan sebelumnya. Kalau belum didefinisikan ya harus menyertakan parentnya `rumahMakan.jamBuka`
 
 ```javascript
 console.log(jum); // Object {open :11, close :23}
@@ -226,3 +226,55 @@ const {
 } = jamBuka;
 console.log(buka, tutup);
 ```
+
+### Membuat function yang dapat menerima banyak argumen dari berbagai objek selama memiliki parameter yang sama
+
+Kita masih tetap memakai objek yang sama hanya saja kita menambahkan function/method baru di dalamnya
+
+```javascript
+  pesanan: function ({
+    pembukaIndex = 1, // Objek yang akan menggunakan function ini harus memiliki parameter/variable yang sama namanya
+    utamaIndex = 0,
+    alamat,
+    pukul = '20:00',
+  }) {
+    console.log( // Console.log untuk menampilkan/mengembalikan hasil ke console
+      `Pesanan diterima! ${this.menuPembuka[pembukaIndex]} dan ${this.menuUtama[utamaIndex]} siap diantarkan ke alamat ${alamat} pukul ${pukul}`
+    );
+  },
+
+};
+```
+
+> Ingat! harus menggunakan kurung kurawa untuk mengurai objek, Nilai default selalu menggunakan = untuk pengisian
+
+```javascript
+pesanan: function ({
+...
+  })
+```
+
+> Parameternya diisi dengan property yang dipakai untuk menerima masukan/argumen dan mengembalikan nilainya
+
+Mari kita gunakan functionya untuk memesan makanan sesuai order! :
+
+```javascript
+rumahMakan.pesanan({
+  pukul: '22:30',
+  alamat: 'Jalan merbabu, 21',
+  pembukaIndex: 2,
+  utamaIndex: 2,
+});
+```
+
+mari kita gunakan waktu default yang function ini sediakan :
+
+```javascript
+rumahMakan.pesanan({
+  pembukaIndex: 0,
+  utamaIndex: 1,
+  alamat: 'Jalan merpati, 30',
+});
+```
+
+> pukul : karena pukul tidak kita definisikan maka javascript akan mengambil nilai default yang kita tetapkan diatas
