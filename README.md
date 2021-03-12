@@ -56,11 +56,11 @@ Kita akan membuat function yang dapat mengurai/mengambil data dari objek rumahMa
 
 ```javascript
 const rumahMakan = {
-  name: "Rumah makan berkah",
-  lokasi: "Jalan merpati blok m",
-  kategori: ["tradisional", "rempah", "gurih", "lezar"],
-  menuPembuka: ["es buah", "es krim", "soto"],
-  menuUtama: ["Padang", "gulai", "rendang"],
+  name: 'Rumah makan berkah',
+  lokasi: 'Jalan merpati blok m',
+  kategori: ['tradisional', 'rempah', 'gurih', 'lezar'],
+  menuPembuka: ['es buah', 'es krim', 'soto'],
+  menuUtama: ['Padang', 'gulai', 'rendang'],
   order: function (pembukaIndex, UtamaIndex) {
     return [this.menuPembuka[pembukaIndex], this.menuUtama[UtamaIndex]];
   },
@@ -134,7 +134,7 @@ Kita bisa mengubah namannya tetapi **_tetap harus merujuk ke nama property objek
 const { name: nama, jamBuka: jamBukanya, kategori: tags } = rumahMakan;
 ```
 
-> Jadi yang kita **_hanya_** menambahkan nama baru tetapi dengan tetap merujuk ke nama property dari objek tersebut.
+> Jadi kita **_hanya_** menambahkan nama baru tetapi dengan tetap merujuk ke nama property dari objek tersebut.
 
 ```javascript
 > console.log(nama, jamBukanya, tags); // Hasil tetap sama
@@ -147,4 +147,39 @@ Dalam beberapa kasus jika ternyata variable yang kita tambahkan di destructor ti
 ```javascript
 const { menu = [], menuPembuka: starters = [] } = rumahMakan;
 console.log(menu, starters);
+```
+
+### Mutating/Override Objects
+
+Kita ingin mengisi lagi nilai dari `d` dan `e`
+
+```javascript
+let d = 4;
+let e = 5;
+const obj = { d: 1, e: 2, f: 3 };
+```
+
+> Kita tidak bisa menggunakan let atau const karena 'd' dan 'e' sebelumnya sudah di deklarasikan di atas
+
+```javascript
+let { d, e } = obj;
+```
+
+> Inikan polanya/formasinya sama dengan ini
+
+```javascript
+const { name, jamBuka, kategori } = rumahMakan;
+```
+
+Kita juga tidak bisa menggunakan kurung kurawa karena javascript menganggapnya block kode, jadi kita tidak mengisi nilai apapun ke dalamnya
+
+```javascript
+{a,b} = obj
+```
+
+Jadi solusinya kita wrap/bungkus semua ini ke dalam kurung balok (_parenthesis_)
+
+```javascript
+[({ d, e } = obj)];
+console.log(d, e);
 ```

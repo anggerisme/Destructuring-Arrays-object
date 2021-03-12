@@ -81,11 +81,21 @@ console.log(nama, jamBukanya, tags);
 const { menu = [], menuPembuka: starters = [] } = rumahMakan;
 console.log(menu, starters);
 
-// ----- Mutating Objects -----
+// ----- Mutating/Override Objects -----
+/* Kita ingin mengisi lagi nilai dari `d` dan `e` */
 let d = 4;
 let e = 5;
 const obj = { d: 1, e: 2, f: 3 };
 /* Kita tidak bisa menggunakan let atau const karena 'd' dan 'e' sebelumnya sudah di deklarasikan di atas */
-let { d, e } = obj;
+// let { d, e } = obj;
 /* Inikan polanya/formasinya sama dengan ini */
 // const { name, jamBuka, kategori } = rumahMakan;
+/* Kita juga tidak bisa menggunakan kurung kurawa karena javascript menganggapnya block kode, jadi kita tidak mengisi nilai apapun ke dalamnya*/
+// {a,b} = obj
+/*Jadi solusinya kita wrap/bungkus semua ini ke dalam kurung balok */
+[({ d, e } = obj)];
+console.log(d, e);
+
+// ----- Nested Objects -----
+const (jum) = jamBuka
+console.log(jum);
