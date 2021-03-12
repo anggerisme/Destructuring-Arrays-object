@@ -1,26 +1,32 @@
 ## Destructuring-Arrays
 
-> Destructuring arryas menggunakan kurung besar []
-> Seri belajar data struktur javascript - part 1
+Seri belajar data struktur javascript - part 1
+Apa itu _destructuring assignment_? adalah ekspresi pada javascript yang memungkinkan untuk mengurai/mengambil nilai dari sebuah array, method ataupun object menjadi variable lain yang berbeda. artinya kita dapat menamai ulang variable/property dari sebuah objek selama nama itu masih merujuk ke nama property aslinya.
+
+### Cara Manual
 
 Jika kita ingin membaca data dari arrays kita harus menggunakan index dari arrays untuk mengambil data
 
 ```javascript
-const arr = [2, 3, 4];
+const arr = [1, 2, 3];
 const a = arr[0];
 const b = arr[1];
 const c = arr[2];
 ```
 
-Cara yang lebih modern
-`[x,y,z]` merupakan destructuring assignment
+### Cara yang lebih powerfull
 
-> The destructuring assignment uses similar syntax, but on the left-hand side of the assignment to define what values to unpack from the sourced variable.
+Caranya hampir mirip dengan yang diatas, tetapi _destructor_ berada di sebelah kiri dari arrays/objek yang akan diambil datanya
 
 ```javascript
-const [x, y, z] = arr;
-console.log(x, y, z); // 2, 3, 4
+const arr = [1, 2, 3];
+const [a, b, c] = arr;
+console.log(a, b, c); // 1, 2, 3
 ```
+
+> Hasilnya akan sama dengan cara yang manual walaupun hanya beberapa baris kode saja. `[a,b,c]` merupakan destructor/pemecah dari `array` [1,2,3]
+
+> Penulisan untuk melakukan proses _Destructuring arryas_ menggunakan kurung besar []
 
 ### Switching variable manual
 
@@ -249,9 +255,7 @@ Kita masih tetap memakai objek yang sama hanya saja kita menambahkan function/me
 > Ingat! harus menggunakan kurung kurawa untuk mengurai objek, Nilai default selalu menggunakan = untuk pengisian
 
 ```javascript
-pesanan: function ({
-...
-  })
+pesanan: function ({})
 ```
 
 > Parameternya diisi dengan property yang dipakai untuk menerima masukan/argumen dan mengembalikan nilainya
@@ -262,12 +266,12 @@ Mari kita gunakan functionya untuk memesan makanan sesuai order! :
 rumahMakan.pesanan({
   pukul: '22:30',
   alamat: 'Jalan merbabu, 21',
-  pembukaIndex: 2,
+  pembukaIndex: 2, // Ini akan memilih sesuai indeks array urutan ke 2 dari menuPembuka
   utamaIndex: 2,
 });
 ```
 
-mari kita gunakan waktu default yang function ini sediakan :
+mari kita gunakan `pukul` default yang function ini sediakan :
 
 ```javascript
 rumahMakan.pesanan({
@@ -278,3 +282,9 @@ rumahMakan.pesanan({
 ```
 
 > pukul : karena pukul tidak kita definisikan maka javascript akan mengambil nilai default yang kita tetapkan diatas
+
+Hasilnya :
+
+```javascript
+Pesanan diterima! es buah dan gulai siap diantarkan ke alamat Jalan merpati, 30 pukul 20:00
+```
