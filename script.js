@@ -65,13 +65,18 @@ console.log([i, j]); // Nilai dalam nested berjumlah 3 data yaitu 2, 4 dan [6,8]
 const [p, q, r] = [8, 9];
 console.log([p, q, r]); // Nilai r adalah undefined karena data pada array hanya ada 3 value
 
-// Destructuring Object
+// ----------- Destructuring Object ---------
 // Dalam membuat objek sama seperti array tapi menggunakan kurung kurawa (karena objek), dan nama variable yang ada di dalam kurung tersebut (sebagai destructor) harus memiliki nama yang sama persis dengan apa yang ada di dalam objek yang ada disampingnya
 const { name, jamBuka, kategori } = rumahMakan;
 console.log(name, jamBuka, kategori);
 
-// Jika kita ingin mengubah nama variablenya (karena tadi menggunakan nama property asli dari objeknya)
+// ---- Jika kita ingin mengubah nama variablenya (karena tadi menggunakan nama property asli dari objeknya) -----
 // Kita bisa mengubah namannya tetapi tetap harus merujuk ke nama property objek yang akan kita ambil datanya
 const { name: nama, jamBuka: jamBukanya, kategori: tags } = rumahMakan;
 // Jadi yang kita hanya menambahkan nama baru tetapi dengan tetap merujuk ke nama property dari objek tersebut.
 console.log(nama, jamBukanya, tags);
+
+// ----- Menambahkan nilai default -----
+// Dalam beberapa kasus jika ternyata variable yang kita tambahkan di destructor tidak terdapat di dalam objek maka secara default nilainya undefined, maka dalam hal ini kita tambahkan nilai yang kita sendiri tentukan
+const { menu = [], menuPembuka: starters = [] } = rumahMakan;
+console.log(menu, starters);

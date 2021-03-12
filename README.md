@@ -116,11 +116,35 @@ const [p = 1, q = 1, r = 1] = [8, 9]; // Maka r sama dengan 1
 
 ### Destructuring Objects
 
-Dalam membuat objek sama seperti array tapi menggunakan kurung kurawa (karena objek), dan nama variable yang ada di dalam kurung tersebut (sebagai destructor) harus memiliki nama yang sama persis dengan apa yang ada di dalam objek yang ada disampingnya
+Dalam membuat objek sama seperti array tapi menggunakan kurung kurawa (karena objek), dan nama variable yang ada di dalam kurung tersebut (sebagai destructor) harus memiliki nama yang sama persis dengan properti yang ada di dalam objek yang ada disampingnya
 
 ```javascript
 const { name, jamBuka, kategori } = rumahMakan;
 console.log(name, jamBuka, kategori);
 ```
 
-> Hasilnya secara berturut turut : Rumah makan berkah, Object { kam: {…}, jum: {…}, sab: {…} }, Array(4) [ "tradisional", "rempah", "gurih", "lezar" ]
+> Hasilnya secara berturut turut : (`Nama`)Rumah makan berkah, (`jamBuka`) Object { kam: {…}, jum: {…}, sab: {…} }, (`Kategori`) Array(4) [ "tradisional", "rempah", "gurih", "lezar" ]
+
+### Mengubah nama variable
+
+Jika kita ingin mengubah nama variablenya (karena tadi menggunakan nama property asli dari objeknya).
+Kita bisa mengubah namannya tetapi **_tetap harus merujuk ke nama property objek_** yang akan kita ambil datanya
+
+```javascript
+const { name: nama, jamBuka: jamBukanya, kategori: tags } = rumahMakan;
+```
+
+> Jadi yang kita **_hanya_** menambahkan nama baru tetapi dengan tetap merujuk ke nama property dari objek tersebut.
+
+```javascript
+> console.log(nama, jamBukanya, tags); // Hasil tetap sama
+```
+
+### ----- Menambahkan nilai default -----
+
+Dalam beberapa kasus jika ternyata variable yang kita tambahkan di destructor tidak terdapat di dalam objek maka secara default nilainya undefined, maka dalam hal ini kita tambahkan nilai yang kita sendiri tentukan
+
+```javascript
+const { menu = [], menuPembuka: starters = [] } = rumahMakan;
+console.log(menu, starters);
+```
